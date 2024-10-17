@@ -1,4 +1,4 @@
-package com.example.calculadora;
+package com.example.calculadora.Models;
 
 public class Calculadora {
     private Double number1;
@@ -14,6 +14,10 @@ public class Calculadora {
     public Double getResult() {
         return Result;
     }
+
+    public void setResult(Double result){
+        this.Result = result;
+    };
 
     public Double CalcularResult(String op) {
 
