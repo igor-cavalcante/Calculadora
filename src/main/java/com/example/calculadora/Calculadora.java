@@ -5,25 +5,28 @@ public class Calculadora {
     private Double number2;
     private Double Result;
 
-    public Calculadora(){
-
+    public Calculadora(Double number1, Double number2, String op){
+    this.number1 = number1;
+    this.number2 = number2;
+    this.Result = CalcularResult(op);
     }
 
     public Double getResult() {
         return Result;
     }
 
-    public void setResult(Double result, String op) {
+    public Double CalcularResult(String op) {
 
         if (op.equals("+")){
-          this.Result = getNumber1() + getNumber2();
+          return getNumber1() + getNumber2();
         } else if (op.equals("-")) {
-           this.Result = getNumber1() - getNumber2();
+           return getNumber1() - getNumber2();
         } else if (op.equals("*")) {
-            this.Result = getNumber1() * getNumber2();
+           return getNumber1() * getNumber2();
         } else if (op.equals("/")) {
-            this.Result = getNumber1() / getNumber2();
+            return getNumber1() / getNumber2();
         }
+        return 0.0;
     }
 
     public Double getNumber1() {
