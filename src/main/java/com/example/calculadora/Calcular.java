@@ -1,7 +1,5 @@
 package com.example.calculadora;
 
-
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -29,22 +27,24 @@ public class Calcular extends HttpServlet {
             } else if (op.equals("*")) {
                 calculo = number1 * number2;;
             } else if (op.equals("/")) {
+                if (number2 != 0) {
                 calculo = number1 / number2;
-            }else {
-            response.setContentType("text/html");
-            response.getWriter().println("<h2>Erro: Divisão por zero não é permitida.</h2>");
-            return;
-            }
-
+                }else {
+                    request.setAttribute("resultado", "Erro: Divisão por zero não é permitida.");
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                    return;
+                }
+            };
             // Enviar o resultado para o cliente
-            response.setContentType("text/html");
-            response.getWriter().println("<h2>O resultado é: " + calculo + "</h2>");
-
+           // response.setContentType("text/html");
+           // response.getWriter().println("<h2>O resultado é: " + calculo + "</h2>");
+            request.setAttribute("resultado", String.valueOf(calculo));
 
         } catch (NumberFormatException e) {
             throw new RuntimeException(e);
         }
+        // Redireciona para a página JSP com o resultado
+        request.getRequestDispatcher("index.jsp").forward(request, response);
 
     }
-
 }
