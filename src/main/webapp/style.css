@@ -14,15 +14,17 @@
     height: 50px;
     border: 2px solid black;
     margin: 0 auto;
-    background-color: #5b715d;
+
     box-shadow: inset 0 0 10px rgba(0,0,0,0.75);
     display: flex;
     justify-content: flex-end;
     align-items: center;
     font-size: 36px;
+    color: white;
 
 }
 #visorInfo {
+    color: white;
     padding: 0 10px;
 }
 
@@ -54,8 +56,6 @@
 .button-result{
     background-color: rgba(200,100,100,1)
 }
-
-
 
 #calculadora::before{
     content:'';
